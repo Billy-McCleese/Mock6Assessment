@@ -1,0 +1,32 @@
+﻿@model List<Employee>
+
+<h2>Employees</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.FirstName</td>
+                <td>@employee.Age</td>
+                <td>@employee.Salary.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Retirement Information</h2>
+
+@using (Html.BeginForm("RetirementInfo", "Home"))
+{
+    <label for="id">Select an employee:</label>
+    <input type="number" name="id" id="id" required>
+    <button type="submit">Get Retirement Info</button>
+}
